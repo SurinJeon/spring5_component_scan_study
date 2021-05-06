@@ -51,7 +51,7 @@ public class MainForSpring {
 			printHelp();	
 			return;
 		}
-		MemberRegisterService regSvc = ctx.getBean("memberRegSvc", MemberRegisterService.class);
+		MemberRegisterService regSvc = ctx.getBean(MemberRegisterService.class); // ComponentScan 지정했기 때문에 앞에 지우고 class만 남겨도 됨
 		
 		RegistRequest req = new RegistRequest();
 		req.setEmail(arg[1]);
@@ -79,7 +79,7 @@ public class MainForSpring {
 			return;
 		}
 		
-		ChangePasswordService changePwdSvc = ctx.getBean("changePwdSvc", ChangePasswordService.class);
+		ChangePasswordService changePwdSvc = ctx.getBean(ChangePasswordService.class);
 		
 		try {
 			changePwdSvc.changePassword(arg[1], arg[2], arg[3]);
@@ -92,7 +92,7 @@ public class MainForSpring {
 	}
 
 	private static void processListCommand() {
-		MemberListPrinter listPrinter = ctx.getBean("memberListPrinter", MemberListPrinter.class);
+		MemberListPrinter listPrinter = ctx.getBean(MemberListPrinter.class);
 		
 //		System.out.println("회원목록입니다.");
 //		for(Entry<String, Member> e : listSvc.showMemberList().entrySet()) {
@@ -108,7 +108,7 @@ public class MainForSpring {
 			return;
 		}
 		
-		MemberInfoPrinter infoPrinter = ctx.getBean("memberInfoPrinter", MemberInfoPrinter.class);
+		MemberInfoPrinter infoPrinter = ctx.getBean(MemberInfoPrinter.class);
 		infoPrinter.printMemberInfo(arg[1]);
 		
 	}
