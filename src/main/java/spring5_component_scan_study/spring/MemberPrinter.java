@@ -1,7 +1,5 @@
 package spring5_component_scan_study.spring;
 
-import org.springframework.stereotype.Component;
-
 public class MemberPrinter {
 
 	public void print(Member member) {
